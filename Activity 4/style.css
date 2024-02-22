@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    background: #1B1B1D;
+  }
+  header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    padding: 23px;
+    padding-left: 180px;
+    
+  }
+  header .navbar {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .navbar .links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 30px;
+  }
+  
+  .navbar .links li a {
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+    transition: 0.2s ease;
+  }
+  .navbar .links li a:hover {
+    color: #1dbf73;
+  }
+  .navbar .links .btn1 a {
+    border: 1px solid #fff;
+    padding: 8px 15px;
+    border-radius: 4px;
+  }
+  .navbar .links .btn1 a:hover {
+    color: #fff;
+    border-color: transparent;
+    background: #1dbf73;
+  }
+  .home-page {
+    height: 100vh;
+    background-image: url("images/hero-img.jpg");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    padding: 0 20px;
+    align-items: center;
+  }
+  .home-page .content {
+    max-width: 1280px;
+    margin: 0 auto 40px;
+    width: 100%;
+  }
+  .home-page .content h1 {
+    color: #fff;
+    font-size: 3rem;
+    max-width: 630px;
+    line-height: 65px;
+  }
+  .home-page .search-form {
+    height: 48px;
+    display: flex;
+    max-width: 630px;
+    margin-top: 30px;
+  }
+  .home-page .search-form input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 0 15px;
+    border-radius: 4px 0 0 4px;
+  }
+  .home-page .search-form button {
+    height: 100%;
+    width: 60px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: #1dbf73;
+    color: #fff;
+    border-radius: 0 4px 4px 0;
+    
+  }
+  .home-page .main-tags {
+    display: flex;
+    color: #fff;
+    gap: 25px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-top: 25px;
+  }
+  .home-page .main-tags .tags {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    list-style: none;
+  }
+  .home-page .tags li a {
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 4px 12px;
+    border-radius: 50px;
+    transition: 0.2s ease;
+  }
+  .home-page .tags li a:hover {
+    color: #000;
+    background: #fff;
+  }
