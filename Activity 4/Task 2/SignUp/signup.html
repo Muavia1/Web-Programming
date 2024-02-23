@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+	  <title>SignUp-Rymo.</title>
+	  <link rel="stylesheet" href="style.css">
+       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        function validateSignUpForm() {
+            let fname=document.forms["SignupForm"]["fname"].value;
+            let email = document.forms["SignupForm"]["email"].value;
+            let username=document.forms["SignupForm"]["username"].value;
+            let password=document.forms["SignupForm"]["password"].value;
+            let birthdate = document.forms["SignupForm"]["birthdate"].value;
+            let gender = document.forms["SignupForm"]["gender"].value;
+            let phone = document.forms["SignupForm"]["number"].value;
+            let count = document.forms["SignupForm"]["count"].value;
+            let zip = document.forms["SignupForm"]["zip"].value;
+            let validEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            if (!email.match(validEmail)) {
+                alert("Please enter a valid email address");
+                return false;
+            }
+            let user_age = 21;
+            
+            if(user_age<18){
+                alert("You must be at least 18 years old to sign up.");
+                return false;
+            }
+            if (gender == "") {
+                alert("Please select a gender");
+                return false;
+            }
+            let phoneno = /^\d{11}$/;
+            if(!phone.match(phoneno)){
+                alert("Please enter a valid Phone Number");
+                return false;
+            }
+            if (count == "") {
+                alert("Please enter your country");
+                return false;
+            }
+
+            if (isNaN(zip ) || zip == "") {
+                alert("Please enter a valid zip code");
+                return false;
+            }
+            if (username== "") {
+                alert("Please enter your username.");
+                return false;
+            }
+
+            if (password == "") {
+                alert("Please enter your password.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    
+ <! -------- account-page -------->
+    <div class="account-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <image src="images/headphone2.png" width="100%"></image>
+                </div>
+                <div class="col-2">
+                    <div class="form-container">
+                        <div class="form-btn">
+                            <span>Sign Up</span>
+                            
+                            <hr id="indicator">
+                        </div>
+                        <form name="SignupForm" action="" onsubmit="return validateSignUpForm()">
+                            <input type="text" name="fname" placeholder="Enter your Name" >
+                            <input type="email" name="email" placeholder="Enter your Email" >
+                            <input type="date"  name="birthdate" placeholder="Birthday" >
+                            <select name="gender" name="gender" id="gender" >
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                            <input type="tel" name="number" placeholder="Enter your Phone Number" >
+                            <input type="text" name="count" placeholder="Enter your Country" >
+                            <input type="text" name="zip" placeholder="Enter Zip Code" >
+                            <input type="text" name="username" placeholder="Enter Username" >
+                            <input type="password" name="password" placeholder="Create Password">
+                            <button type="submit" class="btn">Sign In</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+<! -------- footer -------->
+<div class="footer">
+    <div class="container1">
+        <div class="row">
+            <div class="footer-col-1">
+                <h3>Download Our App</h3>
+                <p>Download App for Android & IOS</p>
+                <div class="app-logo">
+                    <a href=""><img src="images/play-store.png"></a>
+                    <a href=""><img src="images/app-store.png"></a>
+                </div>
+            </div>
+            <div class="footer-col-2">
+                <img src="images/logo2.png">
+                <p>Our Purpose Is To Provide Quality Thing At Best Prices To Our Customers.</p>
+            </div>
+            <div class="footer-col-3">
+                <h3>Useful Links</h3>
+                <ul>
+                    <a href=""><li>How to recover password?</li></a>
+                    <a href=""><li>Login Help</li></a>
+                    <a href=""><li>Sign Up help</li></a>
+                    <a href=""><li>Contact Us</li></a>
+                </ul>
+            </div>
+            <div class="footer-col-4">
+                <h3>Follow Us</h3>
+                <ul>
+                    <a href=""><li>Twitter</li></a>
+                    <a href=""><li>Threads</li></a>
+                    <a href=""><li>Facebook</li></a>
+                    <a href=""><li>Instagram</li></a>
+                </ul>
+            </div>
+        </div>
+        <hr><br>
+       <p class="copyright">Copyright - Muavia Abdul Moiz</p>
+    </div>
+</div>
+    
+    
+</body>
+</html>	 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
