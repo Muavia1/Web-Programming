@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors Game</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  </head>
+  <body>
+    <div class="score">
+      <div class="userScore"><p>You</p>
+        <p id="user-score">0</p></div>
+    </div>
+    <section class="container">
+      <div class="result_field">
+        <div class="result_images">
+          <span class="user_result">
+            <img src="images/rock.png" alt="" />
+          </span>
+          <span class="cpu_result">
+            <img src="images/rock.png" alt="" />
+          </span>
+        </div>
+        <p class="result">Let's Play!!</p>
+      </div>
+      <div class="choices">
+        <span class="choice">
+          <img src="images/rock.png" alt="" />
+          <p>Rock</p>
+        </span>
+        <span class="choice">
+          <img src="images/paper.png" alt="" />
+          <p>Paper</p>
+        </span>
+        <span class="choice">
+          <img src="images/scissors.png" alt="" />
+          <p>Scissors</p>
+        </span>
+      </div>
+    </section>
+    <div class="score1">
+      <div class="cpuScore"><p>Comp</p>
+        <p id="cpu-score">0</p></div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script >
+      let userScore = 0;
+   let compScore = 0;
+  const userScorePara = $("#user-score");
+  const compScorePara = $("#cpu-score");
+  
+  const gameContainer = document.querySelector(".container"),
+  userResult = document.querySelector(".user_result img"),
+  cpuResult = document.querySelector(".cpu_result img"),
+  result = $(".result"),
+  choices = document.querySelectorAll(".choice");
+   choices.forEach((image, index) => {
+  image.addEventListener("click", (e) => {
+
+    userResult.src = cpuResult.src = "images/rock.png";
+    result.eq(0).text("Wait....");
+    gameContainer.classList.add("start");
+    let time = setTimeout(() => {
+      gameContainer.classList.remove("start");
+      let imageSrc = e.target.querySelector("img").src;
+      userResult.src = imageSrc;
+
+      let randomNumber = Math.floor(Math.random() * 3);
+
+      let cpuImages = ["images/rock.png", "images/paper.png", "images/scissors.png"];
+      cpuResult.src = cpuImages[randomNumber];
+
+      const options = ["rock", "paper", "scissors"];
+      const compChoice = options[randomNumber];
+      const userChoice = options[index];
+      if (userChoice === compChoice) {
+        result.eq(0).text("Draw!");
+      } else {
+        let userWin = true;
+        if (userChoice === "rock") {
+          userWin = compChoice === "paper" ? false : true;
+        } else if (userChoice === "paper") {
+          userWin = compChoice === "scissors" ? false : true;
+        } else {
+          userWin = compChoice === "rock" ? false : true;
+        }
+        if (userWin) {
+          userScore++;
+          userScorePara.eq(0).text(userScore);
+          result.eq(0).text("You Win!");
+        } else {
+          compScore++;
+          compScorePara.eq(0).text(compScore);
+          result.eq(0).text("CPU Won!");
+        }
+      }
+    }, 2500);
+  });
+});
+    </script>
+  </body>
+</html>
