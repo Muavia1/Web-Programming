@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <input type="text" placeholder="Enter City Name">
+        <button>Search</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Temperature</th>
+                <th>Weather</th>
+                <th>Feels Like</th>
+                <th>Humidity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="day1">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr id="day2">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr id="day3">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr id="day4">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr id="day5">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+    </table>
+</body>
+<script>
+    document.querySelector('button').addEventListener('click', function (e) {
+        let name = document.querySelector('input').value;
+        if (name) {
+            const url = `https://api.openweathermap.org/data/2.5/forecast?q=${name}&appid=b62e1ffd4acc6207774c94a9720e95a9`;
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    for (let i = 0; i < 5; i++) {
+                        let date = new Date();
+                        document.querySelectorAll(`#day${i + 1}>td`)[0].innerHTML = `${date.getDate() + i} March 2024`;
+                        document.querySelectorAll(`#day${i + 1}>td`)[1].innerHTML = `${parseInt(data.list[i * 8].main.temp - 273.15)}&#176C`;
+                        document.querySelectorAll(`#day${i + 1}>td`)[2].innerHTML = data.list[i * 8].weather[0].main;
+                        document.querySelectorAll(`#day${i + 1}>td`)[3].innerHTML = `${parseInt(data.list[i * 8].main.feels_like - 273.15)}&#176C`;
+                        document.querySelectorAll(`#day${i + 1}>td`)[4].innerHTML = data.list[i * 8].main.humidity;
+                        document.querySelector('table').style.display = 'block';
+                    }
+                })
+                .catch(error => {
+                    alert('Please enter a valid city name');
+                })
+        }
+        else {
+            alert('Please Enter City Name');
+        }
+    });
+</script>
+
+</html>
