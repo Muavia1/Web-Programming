@@ -8,7 +8,7 @@ In task 1 we were aksed to make a personal portfolio.
 
 
 
-![image](https://github.com/Muavia1/Web-Programming/assets/70744880/8254850e-6a68-4efb-8910-db36a22b7694)
+![image](https://github.com/Muavia1/Web-Programming/assets/70744880/2e9cab02-da35-41f5-81b8-dbec5be70801)
 
 
 
