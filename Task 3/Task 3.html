@@ -1,62 +1,65 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Digital Clock With Date</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body onload="initClock()">
-    <div class="datetime">
-      
-      <div class="time">
-        <span id="hour">00</span>:
-        <span id="minutes">00</span>:
-        <span id="seconds">00</span>
-        <span id="period">AM</span>
-      </div>
-      <div class="date">
-        <span id="dayname">Day</span>,
-        <span id="month">Month</span>
-        <span id="daynum">00</span>,
-        <span id="year">Year</span>
-      </div>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 3
+  </title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body onload="initClock()">
+  <div class="datetime">
+    <div class="time">
+      <span id="hour">00</span>:
+      <span id="minutes">00</span>:
+      <span id="seconds">00</span>
+      <span id="period">AM</span>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <div class="date">
+      <span id="dayname">Day</span>,
+      <span id="month">Month</span>
+      <span id="daynum">00</span>,
+      <span id="year">Year</span>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-    <script>
-    function updateClock(){
-      var now = new Date();
-      var dname = now.getDay(),
-          mo = now.getMonth(),
-          dnum = now.getDate(),
-          yr = now.getFullYear(),
-          hou = now.getHours(),
-          min = now.getMinutes(),
-          sec = now.getSeconds(),
-          pe = "AM";
-          $("#hour").text(hou);
-          $("#minutes").text(min);
-          $("#seconds").text(sec);
-          $("#period").text(pe);
+  <script>
+  function updateClock(){
+    var now = new Date();
+    var dname = now.getDay(),
+        mo = now.getMonth(),
+        dnum = now.getDate(),
+        yr = now.getFullYear(),
+        hou = now.getHours(),
+        min = now.getMinutes(),
+        sec = now.getSeconds(),
+        pe = "AM";
+        $("#hour").text(hou);
+        $("#minutes").text(min);
+        $("#seconds").text(sec);
+        $("#period").text(pe);
 
-          if(hou >= 12){
-            pe = "PM";
-          }
-          if(hou == 0){
-            hou = 12;
-          }
-          var months = ["January", "February", "March", "April", "May", "June", "July", "Augest", "September", "October", "November", "December"];
-          var week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-          $("#period").text(pe)
-          $("#dayname").text(week[dname]);
-          $("#month").text(months[mo]);
-          $("#daynum").text(dnum);
-          $("#year").text(yr);
-    }
-    function initClock(){
-      updateClock();
-      window.setInterval("updateClock()", 1);
-    }
-    </script>
-  </body>
+        if(hou >= 12){
+          pe = "PM";
+        }
+        if(hou == 0){
+          hou = 12;
+        }
+        var months = ["January", "February", "March", "April", "May", "June", "July", "Augest", "September", "October", "November", "December"];
+        var week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        $("#period").text(pe)
+        $("#dayname").text(week[dname]);
+        $("#month").text(months[mo]);
+        $("#daynum").text(dnum);
+        $("#year").text(yr);
+  }
+  function initClock(){
+    updateClock();
+    window.setInterval("updateClock()", 1);
+  }
+  </script>
+</body>
 </html>
