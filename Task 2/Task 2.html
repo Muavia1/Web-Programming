@@ -65,7 +65,8 @@
     document.querySelector('button').addEventListener('click', function (e) {
         let name = document.querySelector('input').value;
         if (name) {
-            const url = `https://api.openweathermap.org/data/2.5/forecast?q=${name}&appid=b62e1ffd4acc6207774c94a9720e95a9`;
+                        const url = `https://api.openweathermap.org/data/2.5/forecast?q=${name}&appid=336e608e293cf79f43aaa4c0341cd14e`;
+
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
